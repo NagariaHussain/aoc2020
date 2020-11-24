@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+from sys import argv
+from pathlib import Path
+
+DAY = argv[1]
+
+# Create dir for day
+dir_path = Path(f'day{DAY}')
+
+if not dir_path.exists():
+    dir_path.mkdir()
+
+# Create file paths
+file_paths = {
+    "input_file": dir_path / 'input.txt',
+    "sol_file"  : dir_path / 'solution.cpp',
+    "sol_h_file": dir_path / 'solution.h',
+    "test_file" : dir_path / 'tests.cpp'
+}
+
+# Create file
+for file_path in file_paths.values():
+    if not file_path.exists():
+        file_path.touch()
+
+
+# Create test file boiler plate code
+with file_paths["test_file"].open('w') as f:
+    f.write('''#include <gtest/gtest.h>
+#include "solution.h"
+
+
+TEST(SUITE_NAME, TEST_NAME) {
+   ASSERT_EQ(5, 5);
+}
+
+
+int main(int argc, char **argv) {
+   testing::InitGoogleTest(&argc, argv);
+
+   if (RUN_ALL_TESTS() == 0) {
+      std::cout << "All tests passed.\\n";
+   }
+
+   init();
+   return 0;
+}
+''')
+
+
+with file_paths["sol_h_file"].open("w") as f:
+    f.write('''#include "../file_utils.h"
+
+void init();
+''')
+
+with file_paths["sol_file"].open("w") as f:
+    f.write('''#include <iostream>
+#include <vector>
+#include <map>
+#include <string>
+#include "solution.h"
+
+using namespace std;
+
+void init() {
+    cout << "From solution file\\n";
+}
+
+''')

@@ -1,0 +1,89 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run tests",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/hello",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "compile single test",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-o",
+                "${fileBasenameNoExtension}_test",
+                "--std=c++11",
+                "test/${fileBasenameNoExtension}_test.cpp",
+                "${relativeFile}",
+                "-lgtest" ,
+                "-lpthread"
+            ],
+           "presentation": {
+               "echo": false,
+               "reveal": "always",
+               "focus": false,
+               "panel": "shared",
+               "showReuseMessage": false,
+               "clear": true
+           }
+        },
+        {
+            "label": "run single test",
+            "type": "shell",
+            "command": "./${fileBasenameNoExtension}_test",
+            "group": "test",
+            "dependsOn": ["compile single test"],"presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "Compile C++ file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${relativeFile}",
+                "../file_utils.cpp",
+                "-o",
+                "${fileBasenameNoExtension}"
+            ],
+            "group": "build",
+            "isBackground": true,
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
+            "label": "run cpp file",
+            "type": "shell",
+            "command": "./${fileBasenameNoExtension}",
+            "group": "build",
+            "dependsOn": [
+                "Compile C++ file"
+            ],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
