@@ -11,7 +11,7 @@
                 "-o",
                 "${fileBasenameNoExtension}",
                 "${fileDirname}/solution.cpp",
-                "${relativeFile}",
+                "${fileDirname}/tests.cpp",
                 "${workspaceFolder}/file_utils.cpp",
                 "-lgtest" ,
                 "-lpthread"

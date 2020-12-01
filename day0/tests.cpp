@@ -2,7 +2,7 @@
 #include "solution.h"
 
 
-TEST(SUITE_NAME, TEST_NAME) {
+TEST(AOC, TEST_NAME) {
    ASSERT_EQ(5, 5);
 }
 
