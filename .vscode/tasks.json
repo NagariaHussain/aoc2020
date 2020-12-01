@@ -12,6 +12,7 @@
                 "${fileBasenameNoExtension}",
                 "${fileDirname}/solution.cpp",
                 "${relativeFile}",
+                "${workspaceFolder}/file_utils.cpp",
                 "-lgtest" ,
                 "-lpthread"
             ],
