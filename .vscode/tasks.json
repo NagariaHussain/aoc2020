@@ -17,7 +17,7 @@
                 "-lpthread"
             ],
            "presentation": {
-               "echo": false,
+               "echo": true,
                "reveal": "always",
                "focus": false,
                "panel": "shared",

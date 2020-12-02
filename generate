@@ -49,12 +49,21 @@ int main(int argc, char **argv) {
 
 
 with file_paths["sol_h_file"].open("w") as f:
-    f.write('''void init();
+    f.write('''
+#include <vector>
+void init();
+
+
+void printVector(vector<long>& v) {
+    for (auto const &n: v) {
+        cout << n << " ";
+    }
+    cout << endl;
+}
 ''')
 
 with file_paths["sol_file"].open("w") as f:
     f.write('''#include <iostream>
-#include <vector>
 #include <map>
 #include <string>
 #include "../file_utils.h"
@@ -67,6 +76,15 @@ void init() {
     // CHANGE THE DAY!
     FileUtils::read_as_list_of_split_longs("day0/input.txt", inp, ',', '"', '#');
     cout << "From solution file\\n";
+
+    // vector<long> exp{};
+
+    // ifstream f{"day0/input.txt"};
+    // string buf;
+
+    // while (getline(f, buf)) {
+        // exp.push_back(stol(buf));
+    // }
 }
 
 ''')
