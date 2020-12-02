@@ -54,12 +54,13 @@ with file_paths["sol_h_file"].open("w") as f:
 void init();
 
 
-void printVector(vector<long>& v) {
+void printVector(std::vector<long>& v) {
     for (auto const &n: v) {
-        cout << n << " ";
+        std::cout << n << " ";
     }
-    cout << endl;
+    std::cout << endl;
 }
+
 ''')
 
 with file_paths["sol_file"].open("w") as f:

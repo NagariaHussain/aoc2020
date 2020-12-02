@@ -16,6 +16,7 @@ void printVector(vector<long>& v) {
     }
     cout << endl;
 }
+
 void init() {
     // vector<vector<long> > inp;
     // CHANGE THE DAY!
