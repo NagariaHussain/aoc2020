@@ -50,17 +50,11 @@ int main(int argc, char **argv) {
 
 with file_paths["sol_h_file"].open("w") as f:
     f.write('''
+#pragma once
 #include <vector>
+
 void init();
-
-
-void printVector(std::vector<long>& v) {
-    for (auto const &n: v) {
-        std::cout << n << " ";
-    }
-    std::cout << endl;
-}
-
+void printVector(std::vector<long>& v);
 ''')
 
 with file_paths["sol_file"].open("w") as f:
@@ -88,4 +82,12 @@ void init() {
     // }
 }
 
+
+/** To  */
+void printVector(std::vector<long>& v) {
+    for (auto const &n: v) {
+        std::cout << n << " ";
+    }
+    std::cout << std::endl;
+}
 ''')
