@@ -52,6 +52,9 @@ with file_paths["sol_h_file"].open("w") as f:
     f.write('''
 #pragma once
 #include <vector>
+#include <map>
+
+using namespace std;
 
 void init();
 void printVector(std::vector<long>& v);
@@ -61,6 +64,7 @@ with file_paths["sol_file"].open("w") as f:
     f.write('''#include <iostream>
 #include <map>
 #include <string>
+#include <fstream>
 #include "../file_utils.h"
 #include "solution.h"
 
