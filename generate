@@ -65,6 +65,7 @@ with file_paths["sol_file"].open("w") as f:
 #include <map>
 #include <string>
 #include <fstream>
+#include <algorithm>
 #include "../file_utils.h"
 #include "solution.h"
 
