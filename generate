@@ -5,7 +5,7 @@ from pathlib import Path
 DAY = argv[1]
 
 # Create dir for day
-dir_path = Path(f'day{DAY}')
+dir_path = Path(f'day0{DAY}')
 
 if not dir_path.exists():
     dir_path.mkdir()
@@ -15,7 +15,9 @@ file_paths = {
     "input_file": dir_path / 'input.txt',
     "sol_file"  : dir_path / 'solution.cpp',
     "sol_h_file": dir_path / 'solution.h',
-    "test_file" : dir_path / 'tests.cpp'
+    "test_file" : dir_path / 'tests.cpp',
+    "test_part1": dir_path / 'test1.txt',
+    "test_part2": dir_path / 'test2.txt'
 }
 
 # Create file
