@@ -86,13 +86,38 @@ int countBags1(string file) {
 }
 
 
+long countRec(string b_name, map<string, map<string, int>>& bt) {
+    long count = 1;
+
+    if (bt.count(b_name) > 0) {
+        for (auto& m: bt[b_name]) {
+            count += m.second * countRec(m.first, bt);
+        }
+    }
+
+    return count;
+}
+
 int countBags2(string file) {
 
-    return 0;
+    map<string, map<string, int>> bagTree = getBagTree(file);
+
+    long ans = 0;
+
+    for (auto& bag: bagTree["shinygold"]) {
+        string b_name = bag.first;
+        int b_count = bag.second;
+
+        ans += (b_count * countRec(b_name, bagTree));
+
+    }
+
+    return ans;
 }
 
 void init() {
     cout << "ans: " << countBags1("day07/input.txt") << "\n";
+    cout << "ans: " << countBags2("day07/input.txt") << "\n";
 }
 
 
