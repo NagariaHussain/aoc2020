@@ -9,7 +9,7 @@
             "command": "g++",
             "args": [
                 "-o",
-                "${fileBasenameNoExtension}",
+                "${fileBasenameNoExtension}.o",
                 "${fileDirname}/solution.cpp",
                 "${fileDirname}/tests.cpp",
                 "${workspaceFolder}/file_utils.cpp",
@@ -28,7 +28,7 @@
         {
             "label": "run file",
             "type": "shell",
-            "command": "./${fileBasenameNoExtension}",
+            "command": "./${fileBasenameNoExtension}.o",
             "group": "test",
             "dependsOn": ["compile file"],
             "presentation": {
