@@ -67,6 +67,7 @@ with file_paths["sol_file"].open("w") as f:
 #include <map>
 #include <string>
 #include <fstream>
+#include <unordered_set>
 #include <algorithm>
 #include "../file_utils.h"
 #include "solution.h"
@@ -90,7 +91,7 @@ void init() {
 }
 
 
-/** To  */
+/** To print a vector of longs */
 void printVector(std::vector<long>& v) {
     for (auto const &n: v) {
         std::cout << n << " ";
